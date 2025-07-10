@@ -8,7 +8,7 @@ class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
         def dfs(root,curr_max,curr_min):
             if not root:
-                return curr_max - curr_min
+                return abs(curr_min - curr_max)
 
             curr_max = max(curr_max,root.val)
             curr_min = min(curr_min,root.val)
