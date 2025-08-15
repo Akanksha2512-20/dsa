@@ -1,12 +1,7 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        count = {}
-        for num in nums:
-            if num not in count:
-                count[num]=1
-            else:
-                count[num]+=1
-        for i in count:
-            if count[i]==1:
-                return i
-            
+        nums.sort()
+        for i in range(0,len(nums)-1,2):
+            if nums[i]!=nums[i+1]:
+                return nums[i]
+        return nums[-1]        
