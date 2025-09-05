@@ -4,15 +4,14 @@ class Solution:
         res = r
 
         def canShip(cap):
-            ships, currCap = 1, cap
+            ships, total = 1, 0
             for w in weights:
-                if currCap - w < 0:
+                if total + w > cap:  
                     ships += 1
-                    if ships > days:
-                        return False
-                    currCap = cap
-
-                currCap -= w
+                    total = 0
+                total += w
+                if ships > days:  
+                    return False
             return True
 
         while l <= r:
