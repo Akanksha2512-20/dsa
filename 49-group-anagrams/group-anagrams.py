@@ -1,10 +1,10 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         freq = defaultdict(list)
-        for i in range(len(strs)):
-            s = ''.join(sorted(strs[i]))
-            if s in freq:
-                freq[s].append(strs[i])
-            else:    
-                freq[s].append(strs[i])    
+
+        for s in strs:
+            count = [0]*26
+            for c in s:
+                count[ord(c)-ord('a')]+=1
+            freq[tuple(count)].append(s)        
         return list(freq.values())        
